@@ -1,5 +1,6 @@
 package com.jojodu.book.springboot.domain.posts;
 
+import com.jojodu.book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 @Getter // Getter 메소드 자동 생성
 @NoArgsConstructor // 기본 생성자 자동 추가 public Posts(){} 와 같은 효과 (lombok)
 @Entity // 테이블과 링크될 클래스 : 기본값으로 클래스의 카멜케이스 이름을 _으로 테이블 이름을 매칭 (SalesManager.java -> sales_manager table)
-public class Posts {
+public class Posts  extends BaseTimeEntity {
 
     @Id //PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) //PK 규칙
