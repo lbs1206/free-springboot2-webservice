@@ -1,5 +1,6 @@
 package com.jojodu.book.springboot.web;
 
+import com.jojodu.book.springboot.config.auth.LoginUser;
 import com.jojodu.book.springboot.config.auth.dto.SessionUser;
 import com.jojodu.book.springboot.service.posts.PostsService;
 import com.jojodu.book.springboot.web.dto.PostsResponseDto;
@@ -19,10 +20,8 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {//@LoginUser만 사용하면 세션 정보를 가져올 수 있게됨
         model.addAttribute("posts", postsService.findAllDesc());
-
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
         if (user != null) {
             model.addAttribute("userName", user.getName());
@@ -41,7 +40,6 @@ public class IndexController {
 
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post",dto);
-
         return "posts-update";
     }
 

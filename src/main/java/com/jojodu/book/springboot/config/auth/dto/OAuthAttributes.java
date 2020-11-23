@@ -59,7 +59,7 @@ public class OAuthAttributes {
                 .name(name)
                 .email(email)
                 .picture(picture)
-                .role(Role.GUEST)
+                .role(Role.USER)//글등록 할려면 h2가서 수정 해야 되서 바꿈
                 .build();
     }
 }
