@@ -2,5 +2,5 @@
 
 .gradle
 .idea
-application-oauth.properties
-application-google.properties
+#application-oauth.properties
+#application-google.properties
